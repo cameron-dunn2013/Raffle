@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './Screens/HomeScreen.js';
+import ItemDetail from './Screens/ItemDetail.js';
 
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home' headerMode='none'>
         <Stack.Screen name='Home' component={HomeScreen} />
+        <Stack.Screen name='ItemDetail' component={ItemDetail} />
       </Stack.Navigator>
       <StatusBar backgroundColor={'rgba(0,0,0,0)'} barStyle={'dark-content'} />
     </NavigationContainer>
