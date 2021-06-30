@@ -11,7 +11,7 @@ export default function App() {
   const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home' headerMode='none'>
+      <Stack.Navigator initialRouteName='ItemDetail' headerMode='none'>
         <Stack.Screen name='Home' component={HomeScreen} />
         <Stack.Screen name='ItemDetail' component={ItemDetail} />
       </Stack.Navigator>
