@@ -1,10 +1,19 @@
 import React from 'react'
-import { View, Text, StyleSheet, Dimensions, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, SafeAreaView, ScrollView, Image, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
+
+//Dummy images
+import ShoeImage from '../Assets/ShoeImage.jpg'
+import ShoeBottom from '../Assets/Shoes-Bottom.jpg'
+import ShoeFront from '../Assets/Shoes-Front.jpg'
+import ShoeSide from '../Assets/Shoes-Side.jpg'
+import ShoeSplit from '../Assets/Shoes-Split.jpg'
+import ProfilePicture from '../Assets/ProfilePicture.jpg'
 
 const ItemDetail = () => {
 
     const screenWidth = Dimensions.get('window').width
+    const previewImageHeight = 200
     return (
         <SafeAreaView style={styles.container}>
             {/* Header */}
@@ -15,6 +24,68 @@ const ItemDetail = () => {
             </View>
 
             {/* Product Images */}
+            <View style={{ flexDirection: 'column', justifyContent: 'flex-start', overflow: 'hidden', borderRadius: 20, width: screenWidth - 20, alignSelf: 'center' }}>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} snapToInterval={screenWidth - 20} decelerationRate={0} snapToAlignment={'center'} style={{ height: previewImageHeight, borderRadius: 20 }}>
+                    <Image source={ShoeImage} style={{ width: screenWidth - 20, resizeMode: 'cover', height: previewImageHeight }} />
+                    <Image source={ShoeBottom} style={{ width: screenWidth - 20, resizeMode: 'cover', height: previewImageHeight }} />
+                    <Image source={ShoeFront} style={{ width: screenWidth - 20, resizeMode: 'cover', height: previewImageHeight }} />
+                    <Image source={ShoeSide} style={{ width: screenWidth - 20, resizeMode: 'cover', height: previewImageHeight }} />
+                    <Image source={ShoeSplit} style={{ width: screenWidth - 20, resizeMode: 'cover', height: previewImageHeight }} />
+                </ScrollView>
+            </View>
+            {/* End of Product Images */}
+
+            {/* Owner info */}
+            <View style={{ width: screenWidth - 20, marginTop: 20, borderRadius: 20, height: 175, backgroundColor: '#B4B4B4' }}>
+                <Text style={{ fontSize: 24, fontFamily: 'Poppins-Bold', color: 'black', marginTop: 8, marginLeft: 16 }}>Owner Info</Text>
+                <View style={{ flexDirection: 'row' }}>
+                    {/* Profile Picture of user */}
+                    <Image source={ProfilePicture} style={{ height: 75, width: 75, borderRadius: 37.5, resizeMode: 'cover', marginLeft: 10 }} />
+                    <View style={{ flexDirection: 'row' }}>
+                        {/* View Containing overview of user */}
+                        <View style={{ marginLeft: 16 }}>
+                            <Text style={{ fontSize: 20, fontFamily: 'Poppins-Bold', color: 'black', height: 24 }}>Cdunn95</Text>
+                            <Text style={{ fontSize: 14, fontFamily: 'Poppins-SemiBold', color: 'black', height: 18 }}>1.5 years on Raffle</Text>
+                            <Text style={{ fontSize: 14, fontFamily: 'Poppins-SemiBold', color: 'black', height: 18 }}>70 Ratings</Text>
+                            <View style={{ flexDirection: 'row' }}>
+                                <Icon name='star' size={20} color={'#FFD130'} />
+                                <Icon name='star' size={20} color={'#FFD130'} />
+                                <Icon name='star' size={20} color={'#FFD130'} />
+                                <Icon name='star' size={20} color={'#FFD130'} />
+                                <Icon name='star-half' size={20} color={'#FFD130'} />
+                            </View>
+                        </View>
+                        {/* View Containing Visit Profile Button */}
+                        <TouchableOpacity style={{ alignSelf: 'center', marginLeft: 8 }}>
+                            <View style={{ width: 100, height: 41, backgroundColor: '#DD5151', borderRadius: 15, alignItems: 'center', justifyContent: 'center' }}>
+                                <Text style={{ fontFamily: 'Poppins-SemiBold', color: 'white', size: 14 }}>Visit Profile</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+            {/* End of Owner Info */}
+
+
+            {/* Raffle information */}
+            <View style={{ height: 200, width: screenWidth - 20, backgroundColor: '#B4B4B4', borderRadius: 20, marginTop: 20 }}>
+                {/* Top portion of view containing participants and pricing */}
+                <View style={{ flexDirection: 'row' }}>
+                    {/* Participants */}
+                    <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 20, marginTop: 10 }}>
+                        <Icon name='person' size={40} style={{ color: 'black' }} />
+                        <Text style={{ fontSize: 20, fontFamily: 'Poppins-Bold', color: 'black', height: 24 }}>12/100</Text>
+                    </View>
+
+                    {/* Pricing */}
+                    <View style={{ justifyContent: 'flex-end', flex: 1, flexDirection: 'row', marginTop: 10, alignItems: 'center', marginRight: 20 }}>
+                        <Text style={{ fontSize: 20, fontFamily: 'Poppins-Bold', color: 'black', height: 24 }}>$2/Ticket</Text>
+                    </View>
+
+                </View>
+                {/* End top portion */}
+
+            </View>
 
         </SafeAreaView>
     );
@@ -29,6 +100,7 @@ const styles = StyleSheet.create({
         right: 0,
         left: 0,
         position: 'absolute',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        alignItems: 'center'
     }
 })
