@@ -10,7 +10,7 @@ import ShoeSide from '../Assets/Shoes-Side.jpg'
 import ShoeSplit from '../Assets/Shoes-Split.jpg'
 import ProfilePicture from '../Assets/ProfilePicture.jpg'
 
-const ItemDetail = () => {
+const ItemDetail = ({ navigation }) => {
 
     const screenWidth = Dimensions.get('window').width
     const previewImageHeight = 200
@@ -58,7 +58,7 @@ const ItemDetail = () => {
                         {/* View Containing Visit Profile Button */}
                         <TouchableOpacity style={{ alignSelf: 'center', marginLeft: 8 }}>
                             <View style={{ width: 100, height: 41, backgroundColor: '#DD5151', borderRadius: 15, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={{ fontFamily: 'Poppins-SemiBold', color: 'white', size: 14 }}>Visit Profile</Text>
+                                <Text style={{ fontFamily: 'Poppins-SemiBold', color: 'white', fontSize: 14 }}>Visit Profile</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -84,6 +84,18 @@ const ItemDetail = () => {
 
                 </View>
                 {/* End top portion */}
+
+                {/* Middle portion containing remaining time and purchase ticket button */}
+                <View style={{ backgroundColor: 'white', width: 225, height: 125, alignSelf: 'center', borderRadius: 20, marginTop: 10, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 24, fontFamily: 'Poppins-SemiBold', color: 'black', height: 30 }}>10:09</Text>
+                    <Text style={{ fontSize: 24, fontFamily: 'Poppins-SemiBold', color: 'black' }}>remaining</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('PurchasePage')}>
+                        <View style={{ backgroundColor: '#DD5151', width: 180, height: 40, borderRadius: 15, alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
+                            <Text style={{ color: 'white', fontFamily: 'Poppins-SemiBold', fontSize: 14 }}>Purchase Ticket</Text>
+                            <Icon size={20} name='confirmation-number' style={{ color: 'white', marginLeft: 10, marginBottom: 4 }} />
+                        </View>
+                    </TouchableOpacity>
+                </View>
 
             </View>
 

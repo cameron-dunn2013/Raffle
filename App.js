@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './Screens/HomeScreen.js';
 import ItemDetail from './Screens/ItemDetail.js';
+import PurchasePage from './Screens/PurchasePage.js';
 
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
       <Stack.Navigator initialRouteName='ItemDetail' headerMode='none'>
         <Stack.Screen name='Home' component={HomeScreen} />
         <Stack.Screen name='ItemDetail' component={ItemDetail} />
+        <Stack.Screen name='PurchasePage' component={PurchasePage} />
       </Stack.Navigator>
       <StatusBar backgroundColor={'rgba(0,0,0,0)'} barStyle={'dark-content'} />
     </NavigationContainer>
